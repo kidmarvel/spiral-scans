@@ -1,57 +1,119 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background: linear-gradient(to right, #141E30, #243B55);
+    color: white;
     text-align: center;
 }
 
+/* Header */
 header {
-    background-color: #0073e6;
-    color: white;
-    padding: 20px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
 }
 
-nav {
-    background-color: #005bb5;
-    padding: 10px 0;
+h1 {
+    font-size: 2.5em;
+    color: #4facfe;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
+    color: white;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
+nav ul li a:hover {
+    color: #4facfe;
+}
+
+/* Sections */
 section {
-    padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.button {
+section h2 {
+    font-size: 2em;
+    color: #f3f3f3;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Sign Up Button */
+.btn {
     display: inline-block;
-    background-color: #0073e6;
+    background: #4facfe;
     color: white;
     padding: 10px 20px;
-    text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background 0.3s;
 }
 
-.button:hover {
-    background-color: #005bb5;
+.btn:hover {
+    background: #00c6ff;
+}
+
+/* Contact Button */
+#contactBtn {
+    background: #ff5e62;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background 0.3s;
+}
+
+#contactBtn:hover {
+    background: #ff9966;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Scroll Animations */
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
