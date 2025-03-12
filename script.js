@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const contactBtn = document.getElementById("contactBtn");
+document.addEventListener("DOMContentLoaded", function() {
+    const signupButton = document.querySelector(".button");
 
-    contactBtn.addEventListener("click", function () {
-        alert("Thank you for reaching out! We'll get back to you soon.");
+    signupButton.addEventListener("click", function() {
+        alert("You will be redirected to the signup form.");
     });
 });
