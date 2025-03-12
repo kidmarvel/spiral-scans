@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Scroll Animation for Sections
-    const sections = document.querySelectorAll("section");
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const darkModeIcon = document.getElementById("darkModeIcon");
 
-    const revealOnScroll = () => {
-        let triggerBottom = window.innerHeight * 0.8;
-        sections.forEach(section => {
-            let sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < triggerBottom) {
-                section.classList.add("visible");
-            }
-        });
-    };
+    // Load saved mode
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+        darkModeIcon.textContent = "🌙";
+    }
 
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // Trigger once on load
+    darkModeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
 
-    // Contact Button Alert
-    document.getElementById("contactBtn").addEventListener("click", () => {
-        alert("📧 Contact us at support@sbahelp.com");
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+            darkModeIcon.textContent = "🌙";
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+            darkModeIcon.textContent = "🌞";
+        }
     });
 });
