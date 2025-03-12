@@ -1,100 +1,180 @@
-/* General Styling */
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f5f5f5;
     color: #333;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: #f4f4f4;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header */
 header {
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(90deg, #4CAF50, #2E7D32);
-    color: white;
-}
-
-.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 900px;
-    margin: auto;
+    padding: 20px 5%;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* Dark Mode Toggle */
+.toggle-container {
+    position: relative;
 }
 
 #darkModeToggle {
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+    display: none;
 }
 
-/* Navigation */
-nav ul {
-    list-style: none;
+.toggle-label {
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    align-items: center;
+    width: 50px;
+    height: 25px;
+    background: #ddd;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-label::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: yellow;
+    border-radius: 50%;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#darkModeToggle:checked + .toggle-label {
     background: #333;
 }
 
-nav ul li {
-    margin: 0 15px;
+#darkModeToggle:checked + .toggle-label::before {
+    transform: translateX(25px) translateY(-50%);
+    background: white;
 }
 
-nav ul li a {
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
     text-decoration: none;
-    color: white;
+    color: #333;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #4CAF50;
+nav a:hover {
+    color: #4facfe;
 }
 
 /* Sections */
 section {
-    padding: 40px;
     text-align: center;
+    padding: 60px 5%;
 }
 
-.signup-button {
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Service Cards */
+.services-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+    margin: 0;
+    color: #4facfe;
+}
+
+/* Call-to-Action Button */
+.cta-button {
     display: inline-block;
-    padding: 10px 20px;
-    background: #4CAF50;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
     color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.signup-button:hover {
-    background: #2E7D32;
+.cta-button:hover {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    transform: scale(1.05);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #333;
+    background: #222;
     color: white;
 }
 
-/* Dark Mode Colors */
-.dark-mode nav ul {
-    background: #222;
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #eee;
 }
 
-.dark-mode nav ul li a:hover {
-    color: #81C784;
+.dark-mode nav {
+    background: #333;
+}
+
+.dark-mode nav a {
+    color: #eee;
+}
+
+.dark-mode .service-card {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .cta-button {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+}
+
+.dark-mode .cta-button:hover {
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
 }
