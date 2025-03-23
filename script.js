@@ -1,23 +1,29 @@
+// Wait for the page to load before running the script
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.getElementById("dark-mode-toggle");
-    const toggleIcon = document.getElementById("toggle-icon");
 
-    // Check for saved dark mode preference
-    if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark-mode");
-        toggleIcon.textContent = "🌙";
-    }
+    // Find the form on the page
+    let form = document.querySelector("form");
 
-    toggleButton.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
+    // Listen for the form submit event
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the page from reloading
 
-        // Save preference in localStorage
-        if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("darkMode", "enabled");
-            toggleIcon.textContent = "🌙";
-        } else {
-            localStorage.setItem("darkMode", "disabled");
-            toggleIcon.textContent = "☀️";
+        // Get user input values
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let file = document.getElementById("file").value;
+
+        // Simple validation
+        if (name === "" || email === "" || file === "") {
+            alert("Please fill in all fields before submitting.");
+            return;
         }
+
+        // Show a confirmation message
+        alert("Thank you, " + name + "! Your file has been submitted. We will contact you at " + email);
+        
+        // Clear form fields
+        form.reset();
     });
+
 });
