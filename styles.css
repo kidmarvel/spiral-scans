@@ -1,54 +1,66 @@
-/* General Styles */
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f5f5f5;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #6200ea;
-    color: white;
-}
-
+/* Header Styling */
 h1 {
-    margin: 0;
-}
-
-/* Dark Mode Toggle */
-#dark-mode-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Sections */
-section {
-    margin: 30px;
+    color: #2c3e50;
+    background-color: #ecf0f1;
     padding: 20px;
-    background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #121212;
+/* List Styling */
+ol {
+    background-color: white;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
+form {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+button {
+    background-color: #2ecc71;
     color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.dark-mode section {
-    background-color: #1e1e1e;
+button:hover {
+    background-color: #27ae60;
 }
