@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiralScans Dashboard</title>
+</head>
+<body>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <h2>Your Profile</h2>
+        <img id="profile-picture" src="default-image.jpg" alt="Profile Picture">
+        <p id="username">Username: JohnDoe</p>
+        <p id="email">Email: johndoe@email.com</p>
+        <button id="edit-profile">Edit Profile</button>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+        <h2>Your Saved Anime/Manga</h2>
+        <ul>
+            <li>Anime 1</li>
+            <li>Anime 2</li>
+            <li>Anime 3</li>
+        </ul>
+
+        <h2>Your Reading History</h2>
+        <ul>
+            <li>Completed Manga 1</li>
+            <li>Completed Manga 2</li>
+        </ul>
+    </section>
+
+    <!-- Logout Section -->
+    <section id="logout">
+        <button id="logout-btn">Logout</button>
+    </section>
+
+    <script>
+        // Here you can add JavaScript later to make the profile editable, logout, etc.
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            alert('Logging out...');
+            // Add logout functionality here
+        });
+    </script>
+
+</body>
+</html>
