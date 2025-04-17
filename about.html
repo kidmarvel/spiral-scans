@@ -1,51 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - SpiralScans</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <style>
-    /* Include previous styles */
-    /* Add your header and dark/light theme styles here */
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | SpiralScans</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="dark">
-
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Logo" />
-      SpiralScans
-    </div>
-    <nav>
+<body>
+  <header class="navbar">
+    <div class="navbar-title">SpiralScans</div>
+    <nav class="navbar-links">
       <a href="index.html">Home</a>
-      <a href="anime-match.html">Anime Match</a>
-      <a href="manga.html">Manga</a>
-      <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
+      <a href="anime-match.html">Anime Match</a>
+      <a href="dashboard.html">Dashboard</a>
       <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <div class="toggle" onclick="toggleTheme()">🌙</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </header>
 
-  <section class="section">
-    <h2>About SpiralScans</h2>
-    <p>SpiralScans is a platform dedicated to connecting anime fans with iconic series, based on your graduation year. Our mission is to bring the joy of anime and manga into one seamless experience, catering to the nostalgia and passion of fans worldwide.</p>
-    <p>We aim to bring anime lovers closer to their favorite series and upcoming manga releases in an aesthetically pleasing and user-friendly environment.</p>
-  </section>
+  <div class="side-panel" id="sidePanel">
+    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="anime-match.html">Anime Match</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-  <footer>
-    &copy; 2025 SpiralScans. All rights reserved.
-  </footer>
+  <main class="content">
+    <h1>About SpiralScans</h1>
+    <p>SpiralScans is a community-driven anime and manga hub that celebrates your graduation year with style. We aim to match your tastes with the anime that defined your generation, and we're just getting started!</p>
+  </main>
 
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', newTheme);
-      document.querySelector('.toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
-    }
-  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+--- anime-match.html ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Match | SpiralScans</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-title">SpiralScans</div>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="anime-match.html">Anime Match</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <div class="side-panel" id="sidePanel">
+    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="anime-match.html">Anime Match</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main class="content">
+    <h1>Find Your Anime Match</h1>
+    <p>Answer a few questions and we'll recommend anime that matches your graduation year and your vibe.</p>
+    <!-- Form or matching tool will be implemented here -->
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
