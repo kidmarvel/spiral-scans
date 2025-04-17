@@ -1,40 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | SpiralScans</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Dashboard - SpiralScans</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <style>
+    :root {
+      --bg-dark: #1a152e;
+      --text-dark: #e0def4;
+      --bg-light: #fdfdfd;
+      --text-light: #1a152e;
+      --accent: #a78bfa;
+    }
+
+    [data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    [data-theme="light"] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #2a2349;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .logo img {
+      height: 32px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #d0c2f7;
+      font-weight: 500;
+    }
+
+    .toggle, .account {
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 15px;
+      color: white;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .side-panel {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      height: 100%;
+      width: 250px;
+      background-color: #2a2349;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+      padding-top: 50px;
+      transition: 0.3s;
+    }
+
+    .side-panel a {
+      display: block;
+      color: #d0c2f7;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    .side-panel a:hover {
+      background-color: #575757;
+    }
+
+    .side-panel.open {
+      left: 0;
+    }
+
+    .side-panel-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: #d0c2f7;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .dashboard-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .dashboard-card h3 {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .login-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #2a2349;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      width: 300px;
+    }
+
+    .login-modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .login-modal button {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      background: #2a2349;
+      color: #aaa;
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
-  <header class="navbar">
-    <div class="navbar-title">SpiralScans</div>
-    <nav class="navbar-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="anime-match.html">Anime Match</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <header>
+    <div class="logo"><img src="favicon.png" alt="logo"> SpiralScans</div>
+    <div class="header-actions">
+      <nav class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="anime-match.html">Anime Match</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="toggle" onclick="toggleTheme()">🌙</div>
+      <div class="account" onclick="toggleLogin()">👤</div>
+      <div class="hamburger" onclick="togglePanel()">☰</div>
+    </div>
   </header>
 
   <div class="side-panel" id="sidePanel">
-    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <div class="side-panel-close" onclick="togglePanel()">✖</div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="anime-match.html">Anime Match</a>
+    <a href="contact.html">Contact</a>
     <a href="dashboard.html">Dashboard</a>
     <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
   </div>
 
-  <main class="content">
-    <h1>Your Dashboard</h1>
-    <p>View your matched anime, saved favorites, and profile preferences here. More features coming soon!</p>
+  <main class="section">
+    <h2>Your Dashboard</h2>
+    <div class="dashboard-cards">
+      <div class="dashboard-card">
+        <h3>My Watchlist</h3>
+        <p>Track shows you're watching or plan to watch.</p>
+      </div>
+      <div class="dashboard-card">
+        <h3>Match History</h3>
+        <p>View your past anime matches.</p>
+      </div>
+      <div class="dashboard-card">
+        <h3>Account Settings</h3>
+        <p>Update your email, password, and profile info.</p>
+      </div>
+    </div>
   </main>
 
-  <script src="script.js"></script>
+  <footer>
+    &copy; 2025 SpiralScans. All rights reserved.
+  </footer>
+
+  <div class="overlay" id="overlay" onclick="closeLogin()"></div>
+  <div class="login-modal" id="loginModal">
+    <h3>Login</h3>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+  </div>
+
+  <script>
+    function togglePanel() {
+      document.getElementById("sidePanel").classList.toggle("open");
+    }
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+    }
+    function toggleLogin() {
+      document.getElementById("loginModal").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+    function closeLogin() {
+      document.getElementById("loginModal").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+  </script>
 </body>
 </html>
