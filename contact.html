@@ -1,61 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - SpiralScans</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <style>
-    /* Include previous styles */
-    /* Add your header and dark/light theme styles here */
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | SpiralScans</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="dark">
-
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Logo" />
-      SpiralScans
-    </div>
-    <nav>
+<body>
+  <header class="navbar">
+    <div class="navbar-title">SpiralScans</div>
+    <nav class="navbar-links">
       <a href="index.html">Home</a>
-      <a href="anime-match.html">Anime Match</a>
-      <a href="manga.html">Manga</a>
-      <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
+      <a href="anime-match.html">Anime Match</a>
+      <a href="dashboard.html">Dashboard</a>
       <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <div class="toggle" onclick="toggleTheme()">🌙</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </header>
 
-  <section class="section">
-    <h2>Contact Us</h2>
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
+  <div class="side-panel" id="sidePanel">
+    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="anime-match.html">Anime Match</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br><br>
+  <main class="content">
+    <h1>Contact Us</h1>
+    <p>Questions, feedback, or just want to say hi? Drop us a line at <a href="mailto:hello@spiralscans.com">hello@spiralscans.com</a>.</p>
+  </main>
 
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 SpiralScans. All rights reserved.
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', newTheme);
-      document.querySelector('.toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
