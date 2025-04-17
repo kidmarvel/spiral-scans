@@ -2,159 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SpiralScans - Anime Graduation Match</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.png" type="image/x-icon">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpiralScans - Home</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
-    /* Reset & Base */
+    :root {
+      --bg-light: #f3f0ff;
+      --text-light: #1e1b2e;
+      --bg-dark: #1e1b2e;
+      --text-dark: #f8f6ff;
+      --accent: #a678f8;
+    }
+
+    [data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    [data-theme="light"] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      transition: background 0.3s, color 0.3s;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #1e1b2e;
-      color: #f8f6ff;
-      padding: 0;
-      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
-      background: #2a2349;
-      padding: 20px 40px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #2a2349;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
 
     .logo {
+      display: flex;
+      align-items: center;
       font-size: 24px;
       font-weight: bold;
-      color: #a678f8;
-      letter-spacing: 2px;
+      color: var(--accent);
     }
 
-    .content {
-      max-width: 600px;
-      margin: 60px auto;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    .logo img {
+      height: 32px;
+      margin-right: 10px;
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      color: #d9b3ff;
-    }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
       color: #d0c2f7;
+      font-weight: 500;
     }
 
-    input, button {
-      padding: 12px 20px;
-      font-size: 16px;
-      margin: 10px;
-      border-radius: 8px;
+    .toggle {
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #d0c2f7;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      padding: 14px 28px;
+      font-size: 18px;
+      background: var(--accent);
       border: none;
-      outline: none;
-    }
-
-    input {
-      background: #2a2349;
-      color: #f0eaff;
-      border: 1px solid #a678f8;
-    }
-
-    button {
-      background: #a678f8;
+      border-radius: 8px;
       color: white;
       cursor: pointer;
-      transition: background 0.3s;
     }
 
-    button:hover {
-      background: #8d5de7;
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    .result {
-      margin-top: 30px;
-      font-size: 22px;
-      color: #e4d4ff;
-      animation: fadeIn 0.4s ease;
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .featured-grid div {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .featured-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      background: #2a2349;
+      color: #aaa;
+      margin-top: auto;
     }
   </style>
 </head>
-<body>
+<body data-theme="dark">
 
   <header>
-    <div class="logo">SpiralScans</div>
+    <div class="logo">
+      <img src="favicon.ico" alt="Logo" />
+      SpiralScans
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="anime-match.html">Anime Match</a>
+      <a href="#">Manga</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="toggle" onclick="toggleTheme()">🌙</div>
   </header>
 
-  <div class="content">
-    <h1>What Anime Did You Graduate With?</h1>
-    <p>Enter your graduation year (2000–2024) and discover your anime match!</p>
+  <section class="hero">
+    <h1>Discover. Match. Read.</h1>
+    <p>Where anime nostalgia meets manga passion.</p>
+    <button onclick="location.href='anime-match.html'">Take the Anime Match</button>
+  </section>
 
-    <input type="number" id="yearInput" min="2000" max="2024" />
-    <button onclick="findAnime()">Find My Anime</button>
+  <section class="section">
+    <h2>Featured Anime</h2>
+    <div class="featured-grid">
+      <div><img src="https://upload.wikimedia.org/wikipedia/en/6/65/Naruto_cover.PNG" alt="Naruto"><p>Naruto</p></div>
+      <div><img src="https://upload.wikimedia.org/wikipedia/en/7/72/Death_Note_Vol_1.jpg" alt="Death Note"><p>Death Note</p></div>
+      <div><img src="https://upload.wikimedia.org/wikipedia/en/b/b6/Bleachanime.png" alt="Bleach"><p>Bleach</p></div>
+      <div><img src="https://upload.wikimedia.org/wikipedia/en/e/e3/Fullmetal_Alchemist_Brotherhood_DVD1.jpg" alt="FMA"><p>FMA: Brotherhood</p></div>
+    </div>
+  </section>
 
-    <div class="result" id="result"></div>
-  </div>
+  <section class="section">
+    <h2>About SpiralScans</h2>
+    <p style="text-align:center; max-width: 700px; margin: auto; color: #cbbef4;">
+      SpiralScans is your portal to the anime and manga world, matching your graduation year to iconic anime titles and soon offering full manga experiences. Stylish, nostalgic, and made for fans.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 SpiralScans. All rights reserved.
+  </footer>
 
   <script>
-    const animeByYear = {
-      2000: "Digimon Adventure (1999–2000)",
-      2001: "Cardcaptor Sakura (1998–2001)",
-      2002: "Yu-Gi-Oh! Duel Monsters (2000–2002)",
-      2003: "Naruto (2002–2003 for Part 1)",
-      2004: "InuYasha (2000–2004)",
-      2005: "Fullmetal Alchemist (2003–2005)",
-      2006: "Samurai Champloo (2004–2006)",
-      2007: "Death Note (2006–2007)",
-      2008: "Bleach (First Arc) (2004–2008)",
-      2009: "Code Geass R2 (2008–2009)",
-      2010: "Darker than Black: Gemini of the Meteor (2009–2010)",
-      2011: "Gurren Lagann (2007–2011 via reairing)",
-      2012: "Bakuman (2010–2012)",
-      2013: "Bleach (Original run) (2004–2013)",
-      2014: "Kill la Kill (2013–2014)",
-      2015: "Tokyo Ghoul √A (2014–2015)",
-      2016: "Noragami Aragoto (2015–2016)",
-      2017: "Assassination Classroom (2015–2017)",
-      2018: "Gintama (2006–2018)",
-      2019: "Fairy Tail (2009–2019)",
-      2020: "Haikyuu!! To the Top (2015–2020)",
-      2021: "Attack on Titan: Final Season Part 1 (2013–2021)",
-      2022: "JoJo’s Bizarre Adventure: Stone Ocean (2012–2022)",
-      2023: "Bleach: Thousand-Year Blood War Part 2 (2022–2023)",
-      2024: "Attack on Titan: Final Season Part 4 (2013–2024)"
-    };
-
-    function findAnime() {
-      const year = parseInt(document.getElementById("yearInput").value);
-      const resultDiv = document.getElementById("result");
-
-      if (animeByYear[year]) {
-        resultDiv.innerHTML = `🎓 You graduated with: <strong>${animeByYear[year]}</strong>`;
-      } else {
-        resultDiv.innerHTML = "Please enter a valid year between 2000 and 2024.";
-      }
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      document.querySelector('.toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
     }
   </script>
 
