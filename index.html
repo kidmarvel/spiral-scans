@@ -72,6 +72,51 @@
       font-size: 20px;
     }
 
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .side-panel {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      height: 100%;
+      width: 250px;
+      background-color: #2a2349;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+      padding-top: 50px;
+      transition: 0.3s;
+    }
+
+    .side-panel a {
+      display: block;
+      color: #d0c2f7;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    .side-panel a:hover {
+      background-color: #575757;
+    }
+
+    .side-panel.open {
+      left: 0;
+    }
+
+    .side-panel-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: #d0c2f7;
+      cursor: pointer;
+    }
+
     .hero {
       position: relative;
       height: 500px;
@@ -160,6 +205,15 @@
       color: #aaa;
       margin-top: auto;
     }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      nav {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body data-theme="dark">
@@ -175,8 +229,17 @@
       <a href="#">Manga</a>
       <a href="#">Contact</a>
     </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <div class="toggle" onclick="toggleTheme()">🌙</div>
   </header>
+
+  <div class="side-panel" id="sidePanel">
+    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <a href="#">Home</a>
+    <a href="anime-match.html">Anime Match</a>
+    <a href="#">Manga</a>
+    <a href="#">Contact</a>
+  </div>
 
   <section class="hero">
     <video autoplay muted loop playsinline class="bg-video">
@@ -218,6 +281,20 @@
       const newTheme = current === 'dark' ? 'light' : 'dark';
       body.setAttribute('data-theme', newTheme);
       document.querySelector('.toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    }
+
+    function toggleMenu() {
+      document.getElementById('sidePanel').classList.toggle('open');
+    }
+
+    function closeMenu() {
+      document.getElementById('sidePanel').classList.remove('open');
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.hamburger') && !event.target.closest('.side-panel')) {
+        closeMenu();
+      }
     }
   </script>
 
