@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - SpiralScans</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <style>
+    /* Include previous styles */
+    /* Add your header and dark/light theme styles here */
+  </style>
+</head>
+<body data-theme="dark">
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+      SpiralScans
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="anime-match.html">Anime Match</a>
+      <a href="manga.html">Manga</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="toggle" onclick="toggleTheme()">🌙</div>
+  </header>
+
+  <section class="section">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 SpiralScans. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      document.querySelector('.toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    }
+  </script>
+</body>
+</html>
