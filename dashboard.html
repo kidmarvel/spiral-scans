@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpiralScans Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SpiralScans</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-title">SpiralScans</div>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="anime-match.html">Anime Match</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
 
-    <!-- Profile Section -->
-    <section id="profile">
-        <h2>Your Profile</h2>
-        <img id="profile-picture" src="default-image.jpg" alt="Profile Picture">
-        <p id="username">Username: JohnDoe</p>
-        <p id="email">Email: johndoe@email.com</p>
-        <button id="edit-profile">Edit Profile</button>
-    </section>
+  <div class="side-panel" id="sidePanel">
+    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="anime-match.html">Anime Match</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-    <!-- Dashboard Section -->
-    <section id="dashboard">
-        <h2>Your Saved Anime/Manga</h2>
-        <ul>
-            <li>Anime 1</li>
-            <li>Anime 2</li>
-            <li>Anime 3</li>
-        </ul>
+  <main class="content">
+    <h1>Your Dashboard</h1>
+    <p>View your matched anime, saved favorites, and profile preferences here. More features coming soon!</p>
+  </main>
 
-        <h2>Your Reading History</h2>
-        <ul>
-            <li>Completed Manga 1</li>
-            <li>Completed Manga 2</li>
-        </ul>
-    </section>
-
-    <!-- Logout Section -->
-    <section id="logout">
-        <button id="logout-btn">Logout</button>
-    </section>
-
-    <script>
-        // Here you can add JavaScript later to make the profile editable, logout, etc.
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            alert('Logging out...');
-            // Add logout functionality here
-        });
-    </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
