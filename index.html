@@ -4,102 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SpiralScans</title>
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <!-- Edited -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
 
-
-<!-- LINE BREAK - STYLES.CSS  -->
-
+  <!-- LINE BREAK - STYLES.CSS  -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body data-theme="dark">
 
-<!-- LINE BREAK - LOGIN-->
-
+  <!-- LINE BREAK - LOGIN-->
   <div class="overlay" id="overlay" onclick="closeLogin()"></div>
 
   <div class="login-modal" id="loginModal">
     <h3 style="color:white; text-align:center;">Sign In</h3>
-   <input type="email" id="emailInput" placeholder="Email">
-<input type="password" id="passwordInput" placeholder="Password">
-<button id="loginBtn">Login</button>
-<button id="googleBtn">Sign in with Google</button></div>
-
-
-<!-- LINE BREAK - LOGO -->
-  
-<header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo" />
-    <span>Spiral Scans</span>
+    <input type="email" id="emailInput" placeholder="Email">
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <button id="googleBtn">Sign in with Google</button>
   </div>
 
-<nav class="navbar-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-</nav>
+  <!-- LINE BREAK - LOGO -->
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo" />
+      <span>Spiral Scans</span>
+    </div>
 
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
 
-<!-- LINE BREAK - DARK THEME -->
+    <!-- LINE BREAK - DARK THEME -->
+    <div class="header-actions">
+      <div class="account" onclick="openLogin()" title="Login"><i class="fas fa-user"></i></div>
+      <div class="toggle" onclick="toggleTheme()" title="Toggle Theme">🌙</div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
 
-  <div class="header-actions">
-    <div class="account" onclick="openLogin()" title="Login"><i class="fas fa-user"></i></div>
-    <div class="toggle" onclick="toggleTheme()" title="Toggle Theme">🌙</div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-  </div>
-</header>
-
-  
-<!-- LINE BREAK - SIDE PANEL -->
-
+  <!-- LINE BREAK - SIDE PANEL -->
   <div class="side-panel" id="sidePanel">
-  <span class="side-panel-close" onclick="closeMenu()">×</span>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-</div>
+    <span class="side-panel-close" onclick="closeMenu()">×</span>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
 
-
-<!-- LINE BREAK _ HERO SECTION -->
-  
+  <!-- LINE BREAK _ HERO SECTION -->
   <section class="hero">
     <video autoplay muted loop playsinline class="bg-video">
-  <source src="assets/videos/hero.mp4" type="video/mp4" />
+      <source src="assets/videos/banner.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-
-<!-- LINE BREAK - HERO CONTENT-->
-    
+    <!-- LINE BREAK - HERO CONTENT-->
     <div class="hero-content">
       <h1>Discover. Match. Read.</h1>
       <p>We evolve with every turn, little by little</p>
-      <button onclick="location.href='anime-match.html'">Dive into the Spiral</button>
+      <button onclick="location.href='index.html'">Dive into the Spiral</button>
     </div>
   </section>
 
-  
-<!-- LINE BREAK - FEATURED SECTION -->
-
+  <!-- LINE BREAK - FEATURED SECTION -->
   <section class="section">
     <h2>Featured Anime</h2>
     <div class="featured-grid">
-      <div><img src="poster.png" alt="My Hero Academia"><p>My Hero Academia: Final Season</p></div>
+      <div><img src="assets/images/posters/mhap.jpg" alt="My Hero Academia"><p>My Hero Academia: Final Season</p></div>
     </div>
   </section>
 
-  
-<!-- LINE BREAK - RECENT SECTION -->
-
+  <!-- LINE BREAK - RECENT SECTION -->
   <section class="section">
     <h2>Recently Added</h2>
     <div class="featured-grid">
-      <div><img src="poster.png" alt="My Hero Academia"><p>My Hero Academia: Final Season</p></div>
+      <div><img src="assets/images/posters/mhap.jpg" alt="My Hero Academia"><p>My Hero Academia: Final Season</p></div>
     </div>
   </section>
 
-  
-<!-- LINE BREAK - FOOTER -->
-
+  <!-- LINE BREAK - FOOTER -->
   <section class="section">
     <h2>About SpiralScans</h2>
     <p style="text-align:center; max-width: 700px; margin: auto; color: #cbbef4;">
@@ -107,14 +90,12 @@
     </p>
   </section>
 
-  
-<!-- LINE BREAK - COPYRIGHT-->
-
+  <!-- LINE BREAK - COPYRIGHT-->
   <footer>
     &copy; 2025 SpiralScans. All rights reserved.
   </footer>
 
-<!-- LINE BREAK - END -->
+  <!-- LINE BREAK - END -->
   <!-- Link to external JS (non-Firebase) -->
   <script src="script.js"></script>
   <!-- Firebase SDK (must remain as module) -->
