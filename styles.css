@@ -1,0 +1,269 @@
+:root {
+  --bg-light: #f3f0ff;
+  --text-light: #1e1b2e;
+  --bg-dark: #1e1b2e;
+  --text-dark: #f8f6ff;
+  --accent: #a678f8;
+}
+
+[data-theme="dark"] {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+[data-theme="light"] {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #2a2349;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.logo img {
+  height: 32px;
+  margin-right: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #d0c2f7;
+  font-weight: 500;
+}
+
+.toggle, .account {
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 15px;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 250px;
+  background-color: #2a2349;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+  padding-top: 50px;
+  transition: 0.3s;
+}
+
+.side-panel a {
+  display: block;
+  color: #d0c2f7;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.side-panel a:hover {
+  background-color: #575757;
+}
+
+.side-panel.open {
+  left: 0;
+}
+
+.side-panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #d0c2f7;
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--accent);
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: #d0c2f7;
+  margin-bottom: 30px;
+}
+
+.hero-content button {
+  padding: 14px 28px;
+  font-size: 18px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.featured-grid div {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.featured-grid img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2a2349;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  width: 300px;
+}
+
+.login-modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+}
+
+.login-modal button {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background: #2a2349;
+  color: #aaa;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  nav {
+    display: none;
+  }
+}
